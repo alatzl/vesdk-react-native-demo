@@ -38,49 +38,20 @@ import {VESDK, Configuration, TintMode} from 'react-native-videoeditorsdk';
 const App: () => React$Node = () => {
   const openEditor = () => {
     // Set up sample video
-    let video = require('./assets/Skater.mp4');
+    let video = 'https://publish-cdn-qa.bnservers.com/7c519ea8-3de3-48f3-aab9-bd2519978805/sources/427bf2ca9b15f45103e5846c72c6815c8dc4838591d56991b55f3ca6a98e005c.mp4';
     // Set up configuration
     let configuration: Configuration = {
-      // Configure sticker tool
-      sticker: {
-        // Enable personal stickers
-        personalStickers: true,
-        // Configure stickers
-        categories: [
-          // Create sticker category with stickers
-          {
-            identifier: 'example_sticker_category_logos',
-            name: 'Logos',
-            thumbnailURI: require('./assets/React-Logo.png'),
-            items: [
-              {
-                identifier: 'example_sticker_logos_react',
-                name: 'React',
-                stickerURI: require('./assets/React-Logo.png'),
-              },
-              {
-                identifier: 'example_sticker_logos_imgly',
-                name: 'img.ly',
-                stickerURI: require('./assets/imgly-Logo.png'),
-                tintMode: TintMode.SOLID,
-              },
-            ],
-          },
-          // Reorder and use existing sticker categories
-          {identifier: 'imgly_sticker_category_animated'},
-          {identifier: 'imgly_sticker_category_emoticons'},
-          // Modify existing sticker category
-          {
-            identifier: 'imgly_sticker_category_shapes',
-            items: [
-              {identifier: 'imgly_sticker_shapes_badge_01'},
-              {identifier: 'imgly_sticker_shapes_arrow_02'},
-              {identifier: 'imgly_sticker_shapes_spray_03'},
-            ],
-          },
-        ],
-      },
-    };
+    "transform": {
+      "allowFreeCrop": false,
+      "items": [
+        { "width": 9, "height": 16, "toggleable": false, "name": "customLabel" }
+      ]
+    },
+    "forceCrop": true,
+    "export": { "serialization": { "enabled": true, "exportType": "object" } }
+  };
+
+
     VESDK.openEditor(video, configuration).then(
       (result) => {
         console.log(result);
