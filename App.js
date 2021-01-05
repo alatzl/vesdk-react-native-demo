@@ -38,7 +38,8 @@ import {VESDK, Configuration, TintMode} from 'react-native-videoeditorsdk';
 const App: () => React$Node = () => {
   const openEditor = () => {
     // Set up sample video
-    let video = 'https://publish-cdn-qa.bnservers.com/7c519ea8-3de3-48f3-aab9-bd2519978805/sources/427bf2ca9b15f45103e5846c72c6815c8dc4838591d56991b55f3ca6a98e005c.mp4';
+    let video = require('./assets/1608317623731_0.mp4');
+    // let video = 'https://publish-cdn-qa.bnservers.com/7c519ea8-3de3-48f3-aab9-bd2519978805/sources/427bf2ca9b15f45103e5846c72c6815c8dc4838591d56991b55f3ca6a98e005c.mp4';
     // Set up configuration
     let configuration: Configuration = {
     "transform": {
